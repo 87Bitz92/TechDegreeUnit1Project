@@ -51,9 +51,12 @@ var quotes = [
 // Create the getRandomQuuote function and name it getRandomQuote
 
 function getRandomQuote(array) {
-    var randQuote = Math.floor(Math.random() * quotes[]);
+    let randQuote = Math.floor(Math.random() * quotes.length)
+    return randQuote;
+  };
+console.log(getRandomQuote());
 
-console.log(randQuote);
+
 
 
 
@@ -62,12 +65,12 @@ console.log(randQuote);
 
 // Create the printQuote funtion and name it printQuote
 
-function printQuote () {
-    let callQuote = getRandomQuote()
+//function printQuote () {
+    //let callQuote = getRandomQuote()
 
- }
+ //}
 
 // This event listener will respond to "Show another quote" button clicks
 // when user clicks anywhere on the button, the "printQuote" function is called
 
-document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+//document.getElementById('loadQuote').addEventListener("click", printQuote, false);
