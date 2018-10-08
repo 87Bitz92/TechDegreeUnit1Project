@@ -1,7 +1,11 @@
 // FSJS - Random Quote Generator
+const quotebox = document.querySelector('.quote-box');
+const quote2 = document.querySelector('.quote');
+const source2 = document.querySelector('.source');
+const citation2 = document.querySelector('.citation');
+const year2 = document.querySelector('.year');
 
 // Create the array of quote objects and name it quotes
-
 var quotes = [
 
     {
@@ -45,31 +49,22 @@ var quotes = [
 
     }
     ]
-
-
-
 // Create the getRandomQuuote function and name it getRandomQuote
+//***return a randomly selected quote
 
 function getRandomQuote(array) {
-    let randQuote = Math.floor(Math.random() * quotes.length)
-    return randQuote;
+    let randQuote = Math.floor(Math.random() * (quotes.length));
+    let rand_quote = quotes[randQuote];
+    return rand_quote;
   };
-console.log(getRandomQuote());
-
-
-
-
-
-
-
 
 // Create the printQuote funtion and name it printQuote
+function printQuote () {
+    let rand_Q2 = getRandomQuote();
+    return rand_Q2;
+}
 
-//function printQuote () {
-    //let callQuote = getRandomQuote()
-
- //}
-
+console.log(printQuote());
 // This event listener will respond to "Show another quote" button clicks
 // when user clicks anywhere on the button, the "printQuote" function is called
 
