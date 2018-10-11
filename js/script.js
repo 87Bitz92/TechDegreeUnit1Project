@@ -1,9 +1,5 @@
 // FSJS - Random Quote Generator
-const quotebox = document.querySelector('.quote-box');
-const quote2 = document.querySelector('.quote');
-const source2 = document.querySelector('.source');
-const citation2 = document.querySelector('.citation');
-const year2 = document.querySelector('.year');
+const quotebox = document.querySelector('#quote-box');
 
 // Create the array of quote objects and name it quotes
 var quotes = [
@@ -61,11 +57,41 @@ function getRandomQuote(array) {
 // Create the printQuote funtion and name it printQuote
 function printQuote () {
     let rand_Q2 = getRandomQuote();
-    return rand_Q2;
-}
+    const pQuote = document.querySelector('.quote').textContent;
+    const pSource = document.querySelector('.source').textContent;
+    const spanCit = document.querySelector('.citation').textContent;
+    const spanYear = document.querySelector('.year').textContent;
+
+        for (let i = 0; i < rand_Q2.length; i++) {
+
+          if (spanCit) {
+            pQuote = rand_Q2.quote;
+            pSource = rand_Q2.source;
+            spanYear = rand_Q2.year;
+            spanCit = rand_Q2.citation;
+
+            let message = pQuote +  pSource + spanCit + spanYear;
+            return message;
+            } else {
+              pQuote = rand_Q2.quote;
+              pSource = rand_Q2.source;
+              spanYear = rand_Q2.year;
+
+                }
+              }
+
+            }
+
 
 console.log(printQuote());
+
 // This event listener will respond to "Show another quote" button clicks
 // when user clicks anywhere on the button, the "printQuote" function is called
 
-//document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+
+
+//pQuote.textContent = rand_Q2.quote.value;
+//pSource.textContent = rand_Q2.source.value;
+//spanYear.textContent = rand_Q2.year.value;
+//spanCit.textContent = rand_Q2.citation.value;
