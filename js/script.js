@@ -1,6 +1,9 @@
 // FSJS - Random Quote Generator
 const quotebox = document.querySelector('#quote-box');
-
+const pQuote = document.querySelector('.quote');
+const pSource = document.querySelector('.source');
+const spanCit = document.querySelector('.citation');
+const spanYear = document.querySelector('.year');
 // Create the array of quote objects and name it quotes
 var quotes = [
 
@@ -16,7 +19,7 @@ var quotes = [
 
         quote: 'Dogs are awesome',
         source: 'Kanye West',
-        citation: 'Bay Area Post',
+
         year: 1254
     },
 
@@ -32,7 +35,7 @@ var quotes = [
 
         quote: 'Donuts are gross!',
         source: 'My Mom',
-        citation: 'Her Rules',
+
         year: 1987
     },
 
@@ -56,34 +59,25 @@ function getRandomQuote(array) {
 
 // Create the printQuote funtion and name it printQuote
 function printQuote () {
+
     let rand_Q2 = getRandomQuote();
-    const pQuote = document.querySelector('.quote').textContent;
-    const pSource = document.querySelector('.source').textContent;
-    const spanCit = document.querySelector('.citation').textContent;
-    const spanYear = document.querySelector('.year').textContent;
+    let quoPrint = rand_Q2.quote;
+    let sourPrint = rand_Q2.source;
+    let yearPrint = rand_Q2.year;
+    let citPrint = rand_Q2.citation;
 
-        for (let i = 0; i < rand_Q2.length; i++) {
-
-          if (spanCit) {
-            pQuote = rand_Q2.quote;
-            pSource = rand_Q2.source;
-            spanYear = rand_Q2.year;
-            spanCit = rand_Q2.citation;
-
-            let message = pQuote +  pSource + spanCit + spanYear;
+        if (citPrint) {
+            let message = quoPrint + ' -' + sourPrint + ' -' + citPrint + ' -' + yearPrint;
             return message;
-            } else {
-              pQuote = rand_Q2.quote;
-              pSource = rand_Q2.source;
-              spanYear = rand_Q2.year;
+          } else {
+            let message = quoPrint + ' -' + sourPrint + ' -' + yearPrint;
+            return message
+          }
 
-                }
-              }
-
-            }
-
+  }
 
 console.log(printQuote());
+
 
 // This event listener will respond to "Show another quote" button clicks
 // when user clicks anywhere on the button, the "printQuote" function is called
