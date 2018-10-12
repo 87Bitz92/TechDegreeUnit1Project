@@ -4,6 +4,10 @@ const pQuote = document.querySelector('.quote');
 const pSource = document.querySelector('.source');
 const spanCit = document.querySelector('.citation');
 const spanYear = document.querySelector('.year');
+const loadQuote = document.querySelector('#loadQuote');
+
+
+
 // Create the array of quote objects and name it quotes
 var quotes = [
 
@@ -67,6 +71,10 @@ function printQuote () {
     let citPrint = rand_Q2.citation;
 
         if (citPrint) {
+          pQuote.textContent = quoPrint;
+          pSource.textContent = sourPrint;
+          spanYear.textContent = yearPrint;
+          spanCit.textContent = citPrint;
             let message = quoPrint + ' -' + sourPrint + ' -' + citPrint + ' -' + yearPrint;
             return message;
           } else {
@@ -76,16 +84,16 @@ function printQuote () {
 
   }
 
-console.log(printQuote());
-
+printQuote();
 
 // This event listener will respond to "Show another quote" button clicks
 // when user clicks anywhere on the button, the "printQuote" function is called
 
-document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+
 
 
 //pQuote.textContent = rand_Q2.quote.value;
 //pSource.textContent = rand_Q2.source.value;
 //spanYear.textContent = rand_Q2.year.value;
 //spanCit.textContent = rand_Q2.citation.value;
+document.getElementById('loadQuote').addEventListener("click", printQuote, false);
