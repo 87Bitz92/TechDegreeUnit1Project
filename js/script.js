@@ -72,3 +72,34 @@ printQuote();
 // when user clicks anywhere on the button, the "printQuote" function is called
 
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+
+
+let rand_color = [0,1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f'];
+
+//let message =;
+
+function getRandomColor (){
+  let newArrCol = [];
+        //for (let i = 0; i < 7; i++) {
+        if (newArrCol.length < 3) {
+
+          for (let i = 0; i < 6; i++) {
+
+          let rand_col = Math.floor(Math.random() * rand_color.length);
+
+          let newNum = rand_color[rand_col];
+
+          newArrCol.push(newNum);
+
+          console.log(newArrCol);
+
+        };
+
+        };
+
+};
+let new_Arr = getRandomColor();
+
+let message = [new_Arr];
+
+console.log(message);
