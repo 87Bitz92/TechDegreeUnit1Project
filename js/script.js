@@ -6,6 +6,7 @@ const pSource = document.querySelector('.source');
 const spanCit = document.querySelector('.citation');
 const spanYear = document.querySelector('.year');
 const loadQuote = document.querySelector('#loadQuote');
+const body = document.querySelector('.body');
 
 // Create the array of quote objects and name it quotes
 var quotes = [
@@ -67,39 +68,40 @@ function printQuote () {
   }
 //Calling the function to be printed to the page
 printQuote();
-
 // This event listener will respond to "Show another quote" button clicks
 // when user clicks anywhere on the button, the "printQuote" function is called
+loadQuote.addEventListener("click", printQuote, false);
 
-document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+//Random Color Generator
+loadQuote.addEventListener("click", function (event) {
+  //I placed the random color function inside the event handler
+  let rand_color = [0,1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f'];
+  function getRandomColor (){
+    let newArrCol = [];
+            for (let i = 0; i < 6; i++) {
+            let rand_col = Math.floor(Math.random() * rand_color.length);
+            let newNum = rand_color[rand_col];
+            newArrCol.push(newNum);
+          };
+  return newArrCol;
+  };
+  let new_Arr = getRandomColor();
+  let message = '#' + new_Arr[0] + new_Arr[1] + new_Arr[2] + new_Arr[3] + new_Arr[4] + new_Arr[5];
+  console.log(message);
+  body.style.backgroundColor = message;
+  loadQuote.style.backgroundColor = message;
+});
 
 
-let rand_color = [0,1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f'];
 
-//let message =;
 
-function getRandomColor (){
-  let newArrCol = [];
-        //for (let i = 0; i < 7; i++) {
-        if (newArrCol.length < 3) {
 
-          for (let i = 0; i < 6; i++) {
 
-          let rand_col = Math.floor(Math.random() * rand_color.length);
 
-          let newNum = rand_color[rand_col];
 
-          newArrCol.push(newNum);
 
-          console.log(newArrCol);
 
-        };
 
-        };
 
-};
-let new_Arr = getRandomColor();
 
-let message = [new_Arr];
-
-console.log(message);
+//loadQuote.addEventListener("click", printQuote, false);
