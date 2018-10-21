@@ -101,7 +101,4 @@ loadQuote.addEventListener("click", function (event) {
 
 
 
-
-
-
 //loadQuote.addEventListener("click", printQuote, false);
