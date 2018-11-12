@@ -31,11 +31,10 @@ var quotes = [
         source: 'Yoruba people',
     },
     {
-
         quote: 'It is in our darkest moments, that we must focus to see the light.',
         source: 'Aristotle Onassis',
     }
-    ]
+  ]
 // Create the getRandomQuuote function and name it getRandomQuote
 //***return a randomly selected quote
 function getRandomQuote(array) {
@@ -45,38 +44,36 @@ function getRandomQuote(array) {
   };
 // Create the printQuote funtion and name it printQuote
 function printQuote () {
+
 //I called the getRandomQuote function first then put it in a variable
     let rand_Q2 = getRandomQuote();
 //Grab the property values I want and place in their own variable to be used late.
-    let quoPrint = rand_Q2.quote;
-    let sourPrint = rand_Q2.source;
-    let yearPrint = rand_Q2.year;
-    let citPrint = rand_Q2.citation;
 //Create a conditional statement to check for citation and year properties
-        if (citPrint && yearPrint) {
-          pQuote.textContent = quoPrint;
-          pSource.textContent = sourPrint;
-          spanYear.textContent = yearPrint;
-          spanCit.textContent = citPrint;
-          let message = quoPrint + ' -' + sourPrint + ' -' + citPrint + ' -' + yearPrint;
-            return message;
-//If citation and year are not present, pring the following:
-          } else {
-              let message = quoPrint + ' -' + sourPrint + ' -' + yearPrint;
-                return message
-          }
-  }
+    let message;
+      if (rand_Q2.citation && rand_Q2.year) {
+          let message = '<p class="quote">' +  rand_Q2.quote + '</p>'
+          + '<p class="source">' +  rand_Q2.source + '<span class="citation">' +  rand_Q2.citation + '</span>' +
+          '<span class="year">' +  rand_Q2.year + '</span>' +
+          '</p>';
+        quotebox.innerHTML = message;
+      } else {
+        let message = '<p class="quote">' +  rand_Q2.quote + '</p>'
+        + '<p class="source">' +  rand_Q2.source + '</p>';
+        quotebox.innerHTML = message;
+      }
+  };
 //Calling the function to be printed to the page
 printQuote();
 // This event listener will respond to "Show another quote" button clicks
 // when user clicks anywhere on the button, the "printQuote" function is called
-loadQuote.addEventListener("click", printQuote, false);
-
 //Random Color Generator
 loadQuote.addEventListener("click", function (event) {
   //I placed the random color function inside the event handler
+
   let rand_color = [0,1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f'];
+
   function getRandomColor (){
+
     let newArrCol = [];
             for (let i = 0; i < 6; i++) {
             let rand_col = Math.floor(Math.random() * rand_color.length);
@@ -93,12 +90,4 @@ loadQuote.addEventListener("click", function (event) {
 });
 
 
-
-
-
-
-
-
-
-
-//loadQuote.addEventListener("click", printQuote, false);
+loadQuote.addEventListener("click", printQuote, false);
