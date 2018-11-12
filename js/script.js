@@ -89,6 +89,6 @@ loadQuote.addEventListener("click", function (event) {
   body.style.backgroundColor = message;
   loadQuote.style.backgroundColor = message;
 });
-setinterval(getRandomColor, 1000)
+
 
 loadQuote.addEventListener("click", printQuote, false);
