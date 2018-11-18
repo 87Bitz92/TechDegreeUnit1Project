@@ -7,6 +7,8 @@ const spanCit = document.querySelector('.citation');
 const spanYear = document.querySelector('.year');
 const loadQuote = document.querySelector('#loadQuote');
 const body = document.querySelector('.body');
+const categ = document.querySelector('.kanYe');
+
 
 //let interval = window.setInterval(
 // Create the array of quote objects and name it quotes
@@ -16,34 +18,40 @@ var quotes = [
         quote: 'I am not afraid of storms for I am learning how to sail my ship.',
         source: 'Amy March',
         citation: 'Little Women',
-        year: 1869
+        year: 1860,
+        category: 'English'
     },
     {
         quote: 'To love oneself is the beginning of a lifelong romance.',
         source: 'Oscar Wilde',
         citation: 'An Ideal Husband',
-        year: 1893
+        year: 1893,
+        category: 'English'
     },
     {
         quote: 'You learn how to cut down trees by cutting them down',
         source: 'Bateke people',
+        category:'African'
     },
     {
         quote: 'The wealth which enslaves the owner isn’t wealth',
         source: 'Yoruba people',
+        category:'African'
     },
     {
         quote: 'It is in our darkest moments, that we must focus to see the light.',
         source: 'Aristotle Onassis',
+        category: 'Greek'
     }
   ]
 
 
 
-  loadQuote.addEventListener("click", function (event){
-    printQuote();
-    getRandomColor();
-  });
+
+
+//et clickEvent = loadQuote.addEventListener("click", function (event){
+     //printQuote();
+  //});
 // Create the getRandomQuuote function and name it getRandomQuote
 //***return a randomly selected quote
 
@@ -53,9 +61,6 @@ function getRandomQuote(array) {
     return rand_quote;
   };
 // Create the printQuote funtion and name it printQuote
-
-
-
 function printQuote () {
 
 //I called the getRandomQuote function first then put it in a variable
@@ -74,6 +79,8 @@ function printQuote () {
         + '<p class="source">' +  rand_Q2.source + '</p>';
         quotebox.innerHTML = message;
       }
+
+
 //Random Color Generator - Placed the function inside the printOuote function
       function getRandomColor () {
           let rand_color = [0,1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f'];
@@ -90,10 +97,43 @@ function printQuote () {
         body.style.backgroundColor = message1;
         loadQuote.style.backgroundColor = message1;
 
+      function testChange () {
+
+        var imgTag = document.createElement('img');
+        imgTag.height = 100;
+        imgTag.width = 200;
+        
+        imgTag.id='kanye_Said'
+        imgTag.src = 'cla/Img/kanye_Said.jpg'
+        quotebox.appendChild(imgTag);
+
+
+        //let rand_Quote = rand_Q2.quote;
+          //if (rand_Q2.category === "English") {
+
+            //imgYe.src = 'cla/Img/kanye_Said.jpg'
+
+          //} else if (rand_Q2.category === "African") {
+
+            //imgYe.src = 'cla/Img/kanye_Said.jpg'
+
+          //} else if (rand_Q2.category === "Greek") {
+
+            //imgYe.src = 'cla/Img/kanye_Said.jpg'
+          //};
+
+        };
+
+        testChange();
+
   };
 //Calling the function to be printed to the page
 printQuote();
-let setInterval = document.setInterval(printOuote, 20*1000);
+
+loadQuote.addEventListener('click', printQuote, false)
+
+setInterval(printQuote, 30*1000);
+
 // This event listener will respond to "Show another quote" button clicks
 // when user clicks anywhere on the button, the "printQuote" function is called
 
@@ -119,7 +159,7 @@ let setInterval = document.setInterval(printOuote, 20*1000);
 
 
 
-
+//<img class='Ye' src='/Users/ChristinaWilliams/Desktop/GitHub/cla/Img/kanye_Said.jpg' alt='Ye'>
 
 
 
