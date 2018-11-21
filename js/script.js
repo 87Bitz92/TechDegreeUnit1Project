@@ -7,7 +7,7 @@ const spanCit = document.querySelector('.citation');
 const spanYear = document.querySelector('.year');
 const loadQuote = document.querySelector('#loadQuote');
 const body = document.querySelector('.body');
-const categ = document.querySelector('.kanYe');
+const kanYeDiv = document.querySelector('#kanYe');
 
 
 //let interval = window.setInterval(
@@ -43,29 +43,21 @@ var quotes = [
         source: 'Aristotle Onassis',
         category: 'Greek'
     }
-  ]
+  ];
 
-
-
-
-
-//et clickEvent = loadQuote.addEventListener("click", function (event){
-     //printQuote();
-  //});
 // Create the getRandomQuuote function and name it getRandomQuote
-//***return a randomly selected quote
-
 function getRandomQuote(array) {
     let randQuote = Math.floor(Math.random() * (quotes.length));
     let rand_quote = quotes[randQuote];
     return rand_quote;
   };
+
 // Create the printQuote funtion and name it printQuote
 function printQuote () {
 
 //I called the getRandomQuote function first then put it in a variable
     let rand_Q2 = getRandomQuote();
-//Grab the property values I want and place in their own variable to be used late.
+
 //Create a conditional statement to check for citation and year properties
     let message;
       if (rand_Q2.citation && rand_Q2.year) {
@@ -79,7 +71,6 @@ function printQuote () {
         + '<p class="source">' +  rand_Q2.source + '</p>';
         quotebox.innerHTML = message;
       }
-
 
 //Random Color Generator - Placed the function inside the printOuote function
       function getRandomColor () {
@@ -97,48 +88,31 @@ function printQuote () {
         body.style.backgroundColor = message1;
         loadQuote.style.backgroundColor = message1;
 
+//Created function to change the color of the text based of the category property set in the quotes object.
       function testChange () {
-
-        var imgTag = document.createElement('img');
-        imgTag.height = 100;
-        imgTag.width = 200;
-        
-        imgTag.id='kanye_Said'
-        imgTag.src = 'cla/Img/kanye_Said.jpg'
-        quotebox.appendChild(imgTag);
-
-
-        //let rand_Quote = rand_Q2.quote;
-          //if (rand_Q2.category === "English") {
-
-            //imgYe.src = 'cla/Img/kanye_Said.jpg'
-
-          //} else if (rand_Q2.category === "African") {
-
-            //imgYe.src = 'cla/Img/kanye_Said.jpg'
-
-          //} else if (rand_Q2.category === "Greek") {
-
-            //imgYe.src = 'cla/Img/kanye_Said.jpg'
-          //};
-
+          if (rand_Q2.category === "English") {
+            quotebox.style.color = "blue";
+          } else if (rand_Q2.category === "African") {
+            quotebox.style.color = "red";
+          } else if (rand_Q2.category === "Greek") {
+            quotebox.style.color = "green";
+          };
         };
-
         testChange();
-
   };
+
 //Calling the function to be printed to the page
 printQuote();
-
 loadQuote.addEventListener('click', printQuote, false)
 
+//interval Method to execute every 30 sec
 setInterval(printQuote, 30*1000);
 
 // This event listener will respond to "Show another quote" button clicks
 // when user clicks anywhere on the button, the "printQuote" function is called
 
 
-//loadQuote.addEventListener("click", printQuote, false);
+
 
 
 

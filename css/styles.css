@@ -50,10 +50,14 @@ body {
   margin-right: 4em;
 }
 
-.Ye {
-  position: center;
-  height: 20em;
-  width: 10em;
+#kanYe {
+  position: absolute;
+  right: 90%;
+  bottom: 29.3%;
+  left: 20%;
+  width: 100;
+  height: 100;
+  line-height: .10;
 
 }
 
